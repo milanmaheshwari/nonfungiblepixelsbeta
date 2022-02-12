@@ -2211,9 +2211,9 @@ body{
     position: absolute;
     background: linear-gradient(90deg, #2638ff 0%, #ff3848 100%);
     color: #FFFFFF;
-    width: calc(90vw - 24vh);
+    width: calc(90vw - 20vh);
     height: 8vh;
-    left: 11vh;
+    left: 9vh;
     top: 0;
     border: 0.5vh solid #1A171D;
     outline: none;
@@ -2229,7 +2229,7 @@ body{
   }
   #startmintbtn:active{
     box-shadow: 0 0 0 #1A171D;
-    left: 13.6vh;
+    left: 10.6vh;
     top: 1.6vh;
    }
   
@@ -2566,7 +2566,7 @@ body{
     font-weight: 400;
     letter-spacing: 0;
     color: #1A171D;
-    width: 70%;
+    width: 80%;
     margin: 1vh auto 0;
     text-align: center;
   }
