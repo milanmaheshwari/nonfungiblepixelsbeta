@@ -2253,7 +2253,7 @@ body{
       --trackSize: 3vh;
       --thumbBg: #EC603A;
       --trackBg: #1A171D;
-      --progressBg: #EC603A;
+      --progressBg: #1A171D;
     
       /* webkit progress workaround */
       --webkitProgressPercent: 0%;
