@@ -710,7 +710,7 @@ async function getNetworklazymint(){
         console.log(metadataURI);
 
         let res = await Moralis.Plugins.rarible.lazyMint({
-          chain: 'mainnet',
+          chain: 'eth',
           userAddress: user.get('ethAddress'),
           tokenType: 'ERC721',
           tokenUri: metadataURI,
