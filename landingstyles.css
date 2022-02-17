@@ -1,0 +1,644 @@
+html{
+  cursor: url('pointer.svg'),auto;
+}
+
+@media (min-width: 1200px){
+    body{
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        background-image: url('bglanding.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: url('pointer.svg'),auto;
+    }
+    #flexcontainer{
+      position: relative;
+      width: 80vw;
+      height: 60vh;
+      margin: auto;
+      cursor: url('pointer.svg'),auto;
+    }
+    
+    #logocontainer{
+      position: absolute;
+      left: 5vw;
+      top: 6vh;
+    }
+    #globallinks{
+      position: absolute;
+      display: flex;
+      width: 13.5vh;
+      height: 6vh;
+      right: 5vw;
+      top: 4.5vh;
+      cursor: url('pointer.svg'),auto;
+      margin: 0;
+    }
+    #shareontwitter{
+      width: 8vh;
+      height: 8vh;
+      cursor: url('pointer.svg'),auto;
+    }
+    #bmc{
+      width: 8vh;
+      height: 8vh;
+      margin-left: 1.5vh;
+      cursor: url('pointer.svg'),auto;
+    }
+  
+    #herosection{
+      width: 100%;
+      margin: 24vh auto 0;
+    }
+    #heroheader{
+      font-family: 'Clash Display', sans-serif;
+      font-size: 10vh;
+      font-weight: 900;
+      color: #1A171D;
+      width: 100vh;
+      margin: 4vh auto 0;
+      text-align: center;
+    }
+    #heroctas{
+      position: relative;
+      width: 32vw;
+      height: 8vh;
+      margin: 8vh auto 0;
+      text-align: center;
+    }
+    #getstarted{
+      position: absolute;
+      width: 30vw;
+      height: 8vh;
+      left: 0;
+      top: 0;
+      background: linear-gradient(90deg, #2638ff 0%, #ff3848 100%);
+      color: #FFFFFF;
+      border: 0.5vh solid #1A171D;
+      outline: none;
+      border-radius: 2vh;
+      font-family: 'Clash Display', sans-serif;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 2.5vh;
+      letter-spacing: 0.1vh;
+      text-align: center;
+      cursor: url('pointer.svg'),auto;
+      box-shadow: 1.6vh 1.6vh 0 #1A171D;
+    }
+    #getstarted:active{
+      box-shadow: 0 0 0 #1A171D;
+      margin: 1.6vh 0 0 1.6vh;
+    }
+    
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    #heropixelart{
+      width: 100vw;
+      margin: 24vh 0 0 -10vw;
+      text-align: center;
+    }
+    #carousel{
+      width: 100vw;
+      height: 27vw;
+    }
+  
+    #howitworks{
+      width: 100%;
+      margin: 32vh auto 0;
+    }
+    #howitworksheader{
+      font-family: 'Clash Display', sans-serif;
+      font-size: 5vh;
+      font-weight: 900;
+      color: #1A171D;
+      width: 80vh;
+      margin: 6vh auto 0;
+      text-align: center;
+    }
+  
+    .pointheader{
+      font-family: 'Clash Display', sans-serif;
+      font-size: calc(2.5vh + 1.5vw);
+      font-weight: 900;
+      color: #1A171D;
+      text-align: left;
+      margin: 0;
+    }
+    .pointsubheader{
+      font-family: 'Clash Display', sans-serif;
+      font-size: 2vh;
+      font-weight: 400;
+      color: #1A171D;
+      margin: 2vh 0 0;
+      text-align: left;
+    }
+    #point1{
+      width: 100%;
+      display: flex;
+      margin: 8vh 0 0 0;
+    }
+    #point1text{
+      position: relative;
+      vertical-align: middle;
+      width: 24vw;
+      height: 32vw;
+      margin-left: 6vw;
+    }
+    #p1text{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    #point1ill{
+      position: relative;
+      vertical-align: middle;
+      width: 32vw;
+      height: 32vw;
+      margin-left: 12vw;
+    }
+    #p1ill{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    #p1image{
+      width: 32vw;
+      height: 32vw;
+    }
+  
+    #point2{
+      width: 100%;
+      display: flex;
+      margin: 0;
+    }
+    #point2text{
+      position: relative;
+      vertical-align: middle;
+      width: 24vw;
+      height: 32vw;
+      margin-left: 48vw;
+    }
+    #p2text{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    #point2ill{
+      position: relative;
+      vertical-align: middle;
+      width: 32vw;
+      height: 32vw;
+      margin-left: -70vw;
+    }
+    #p2ill{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    #p2image{
+      width: 32vw;
+      height: 32vw;
+    }
+  
+    #point3{
+      width: 100%;
+      display: flex;
+      margin: 0;
+    }
+    #point3text{
+      position: relative;
+      vertical-align: middle;
+      width: 24vw;
+      height: 32vw;
+      margin-left: 6vw;
+    }
+    #p3text{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    #point3ill{
+      position: relative;
+      vertical-align: middle;
+      width: 24vw;
+      height: 32vw;
+      margin-left: 12vw;
+    }
+    #p3ill{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    #p3image{
+      width: 32vw;
+      height: 32vw;
+    }
+  
+    #footer{
+      width: 100%;
+      margin: 20vh auto 0;
+    }
+    #footerheader{
+      font-family: 'Clash Display', sans-serif;
+      font-size: 5vh;
+      font-weight: 900;
+      color: #1A171D;
+      width: 80vw;
+      margin: 0 auto 0;
+      text-align: center;
+    }
+    #footerctas{
+      position: relative;
+      width: 32vw;
+      height: 8vh;
+      margin: 8vh auto 0;
+      text-align: center;
+    }
+    #getstarted2{
+      position: absolute;
+      width: 30vw;
+      height: 8vh;
+      left: 0;
+      top: 0;
+      background: linear-gradient(90deg, #2638ff 0%, #ff3848 100%);
+      color: #FFFFFF;
+      border: 0.5vh solid #1A171D;
+      outline: none;
+      border-radius: 2vh;
+      font-family: 'Clash Display', sans-serif;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 2.5vh;
+      letter-spacing: 0.1vh;
+      text-align: center;
+      cursor: url('pointer.svg'),auto;
+      box-shadow: 1.6vh 1.6vh 0 #1A171D;
+    }
+    #getstarted2:active{
+      box-shadow: 0 0 0 #1A171D;
+      margin: 1.6vh 0 0 1.6vh;
+    }
+    #footerbottom{
+      position: relative;
+      width: 100%;
+      height: 8vh;
+      margin: 20vh auto 0;
+      text-align: center;
+    }
+  #icons{
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding-bottom: 8vh;
+  }
+  #mail{
+    width: 6vh;
+    height: 6vh;
+    cursor: url('pointer.svg'),auto;
+  }
+  #twitternfp{
+    width: 6vh;
+    height: 6vh;
+    margin-left: 1.5vh;
+    cursor: url('pointer.svg'),auto;
+  }
+  #twitterme{
+    width: 6vh;
+    height: 6vh;
+    margin-left: 1.5vh;
+    cursor: url('pointer.svg'),auto;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 1199px){
+    body{
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        background-image: url('bgmobile.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: url('pointer.svg'),auto;
+    }
+      #flexcontainer{
+        position: relative;
+        width: 90vw;
+        margin: auto;
+      }
+      
+      #logocontainer{
+        position: absolute;
+        left: 5vw;
+        top: 6vh;
+      }
+      #globallinks{
+        position: absolute;
+        display: flex;
+        width: 13.5vh;
+        height: 6vh;
+        right: 5vw;
+        top: 4vh;
+        cursor: url('pointer.svg'),auto;
+        margin: 0;
+      }
+      #shareontwitter{
+        width: 6vh;
+        height: 6vh;
+        cursor: url('pointer.svg'),auto;
+      }
+      #bmc{
+        width: 16vh;
+        height: 4vh;
+        margin-left: 1.5vh;
+        cursor: url('pointer.svg'),auto;
+      }
+    
+      #herosection{
+        width: 100%;
+        margin: 22vh auto 0;
+      }
+      #heroheader{
+        font-family: 'Clash Display', sans-serif;
+        font-size: 60px;
+        font-weight: 900;
+        color: #1A171D;
+        margin: 4vh auto 0;
+        text-align: left;
+      }
+      #heroctas{
+        position: relative;
+        width: 100%;
+        height: 8vh;
+        margin: 12vh auto 0;
+        text-align: center;
+      }
+      #getstarted{
+        position: absolute;
+        width: 88vw;
+        height: 8vh;
+        left: 0;
+        top: 0;
+        background: linear-gradient(90deg, #2638ff 0%, #ff3848 100%);
+        color: #FFFFFF;
+        border: 0.5vh solid #1A171D;
+        outline: none;
+        border-radius: 2vh;
+        font-family: 'Clash Display', sans-serif;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 20px;
+        letter-spacing: 1px;
+        text-align: center;
+        cursor: url('pointer.svg'),auto;
+        box-shadow: 1.6vh 1.6vh 0 #1A171D;
+      }
+      #getstarted:active{
+        box-shadow: 0 0 0 #1A171D;
+        margin: 1.6vh 0 0 1.6vh;
+      }
+      
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      #heropixelart{
+        width: 110vw;
+        margin: 16vh 0 0 -10vw;
+        text-align: center;
+        overflow: hidden;
+      }
+      #carousel{
+        width: 200vw;
+        height: 54vw;
+        margin: 0 0 0 -44vw;
+      }
+    
+      #howitworks{
+        width: 100%;
+        margin: 16vh auto 0;
+      }
+      #howitworksheader{
+        font-family: 'Clash Display', sans-serif;
+        font-size: 24px;
+        font-weight: 900;
+        color: #1A171D;
+        width: 100%;
+        margin: 4vh auto 0;
+        text-align: center;
+      }
+    
+      .pointheader{
+        font-family: 'Clash Display', sans-serif;
+        font-size: 32px;
+        font-weight: 900;
+        color: #1A171D;
+        text-align: center;
+        margin: 0;
+      }
+      .pointsubheader{
+        font-family: 'Clash Display', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #1A171D;
+        margin: 2vh 0 0;
+        text-align: center;
+      }
+      #point1{
+        width: 100%;
+        margin: 12vh 0 0 0;
+      }
+      #point1text{
+        position: relative;
+        vertical-align: middle;
+        width: 80vw;
+        margin: 0 auto;
+      }
+      #point1ill{
+        position: relative;
+        vertical-align: middle;
+        width: 90vw;
+        height: 90vw;
+        margin: 0;
+      }
+      #p1ill{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #p1image{
+        width: 90vw;
+        height: 90vw;
+      }
+      #point2{
+        width: 100%;
+        margin: 12vh 0 0 0;
+      }
+      #point2text{
+        position: relative;
+        vertical-align: middle;
+        width: 80vw;
+        margin: 0 auto;
+      }
+      #point2ill{
+        position: relative;
+        vertical-align: middle;
+        width: 90vw;
+        height: 90vw;
+        margin: 0;
+      }
+      #p2ill{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #p2image{
+        width: 90vw;
+        height: 90vw;
+      }
+      #point3{
+        width: 100%;
+        margin: 12vh 0 0 0;
+      }
+      #point3text{
+        position: relative;
+        vertical-align: middle;
+        width: 80vw;
+        margin: 0 auto;
+      }
+      #point3ill{
+        position: relative;
+        vertical-align: middle;
+        width: 90vw;
+        height: 90vw;
+        margin: 0;
+      }
+      #p3ill{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #p3image{
+        width: 90vw;
+        height: 90vw;
+      }
+    
+      #footer{
+        width: 100%;
+        margin: 20vh auto 0;
+      }
+      #footerheader{
+        font-family: 'Clash Display', sans-serif;
+        font-size: 32px;
+        font-weight: 900;
+        color: #1A171D;
+        margin: 4vh auto 0;
+        text-align: center;
+      }
+      #footerctas{
+        position: relative;
+        width: 100%;
+        height: 8vh;
+        margin: 8vh auto 0;
+        text-align: center;
+      }
+      #email2{
+        position: absolute;
+        width: 88vw;
+        height: 8vh;
+        left: 0;
+        top: 0;
+        font-family: 'Clash Display', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        padding-left: 4vw;
+        color: #1A171D;
+        background-color: #ffffff;
+        box-sizing: border-box;
+        border: 0.4vh solid;
+        border-color: #1A171D;
+        border-radius: 2vh;
+        outline: none;
+        box-shadow: 1.6vh 1.6vh 0 #1A171D;
+      }
+      #email2::placeholder{
+        color: #1A171D33;
+        font-weight: 500;
+      }
+      #getstarted2{
+        position: absolute;
+        width: 88vw;
+        height: 8vh;
+        left: 0;
+        top: 4vh;
+        background: linear-gradient(90deg, #2638ff 0%, #ff3848 100%);
+        color: #FFFFFF;
+        border: 0.5vh solid #1A171D;
+        outline: none;
+        border-radius: 2vh;
+        font-family: 'Clash Display', sans-serif;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 20px;
+        letter-spacing: 1px;
+        text-align: center;
+        cursor: url('pointer.svg'),auto;
+        box-shadow: 1.6vh 1.6vh 0 #1A171D;
+      }
+      #getstarted2:active{
+        box-shadow: 0 0 0 #1A171D;
+        margin: 1.6vh 0 0 1.6vh;
+      }
+
+      #footerbottom{
+        position: relative;
+        width: 100%;
+        height: 8vh;
+        margin: 24vh auto 0;
+        text-align: center;
+      }
+    #icons{
+        position: absolute;
+        text-align: center;
+        width: 88vw;
+        top: 0;
+        right: 0;
+        padding-bottom: 8vh;
+    }
+    #mail{
+      width: 6vh;
+      height: 6vh;
+      cursor: url('pointer.svg'),auto;
+    }
+    #twitternfp{
+      width: 6vh;
+      height: 6vh;
+      margin-left: 1.5vh;
+      cursor: url('pointer.svg'),auto;
+    }
+    #twitterme{
+      width: 6vh;
+      height: 6vh;
+      margin-left: 1.5vh;
+      cursor: url('pointer.svg'),auto;
+    }
+}
