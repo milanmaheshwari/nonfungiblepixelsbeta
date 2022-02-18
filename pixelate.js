@@ -485,9 +485,9 @@ function handleImage(e){
 //logic
 window.addEventListener('load', init);
 imageLoader.addEventListener('change', handleImage, false);
-imageLoader.onclick = function () {
+/*imageLoader.onclick = function () {
   this.value = null;
-};
+};*/
 
 blocksize.onchange = () => {
   applycolor();
@@ -523,6 +523,7 @@ deleteimg.onclick = () => {
   uploadedimagecontainer.style.display = 'none';
   uploadcontainer.style.display = 'block';
   buttons.style.display = 'none';
+  imageLoader.value = '';
 }
 
 //sliders
