@@ -455,8 +455,8 @@ function readeronload(event){
       var w = image.width;
       var h = image.height;
       
-      uploadcanvas.width = 800;
-      uploadcanvas.height = (h/w)*800;
+      uploadcanvas.width = 1600;
+      uploadcanvas.height = (h/w)*1600;
       
       uploadcontext.drawImage(image, 0, 0, uploadcanvas.width, uploadcanvas.height);
       uploadimgdata = uploadcontext.getImageData(0, 0, uploadcanvas.width, uploadcanvas.height);
