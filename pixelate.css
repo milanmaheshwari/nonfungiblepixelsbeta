@@ -56,9 +56,108 @@ body{
   top: 10vh;
 }
 
-#uploadedimagecontainer{
+#drawing{
+  width: 8vh;
   margin: 6vh 0 0 0;
-  width: 96vh;
+  position: relative;
+}
+#drawing button{
+  position: absolute;
+  width: 8vh;
+  height: 8vh;
+  border: 0.5vh solid #1A171D;
+  outline: none;
+  border-radius: 2vh;
+  cursor: url('pointer.svg'),auto;
+  box-shadow: 1vh 1vh 0 #1A171D;
+  background-color: #ffffff;
+}
+.pointerlist{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.pointerlist li{
+  position: absolute;
+  width: 8vh;
+  height: 8vh;
+}
+.pointerlist label, .pointerlist input{
+  display: block;
+  background-color: #ffffff;
+  margin: 0;
+}
+.pointerlist input[type="radio"]{
+  opacity: 0.01;
+  z-index: 2;
+}
+.pointerlist input[type="radio"]:checked+label{
+  background-color: #EC603A;
+}
+.pointerlist label{
+  z-index: 1;
+  width: 90%;
+  border: 0.5vh solid #1A171D;
+  outline: none;
+  border-radius: 2vh;
+  cursor: url('pointer.svg'),auto;
+  box-shadow: 1vh 1vh 0 #1A171D;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 18% 0;
+}
+
+#liforarrow{
+  top: 2vh;
+  left: 0;
+}
+#liforarrow:active{
+  box-shadow: 0 0 0 #1A171D;
+  top: 3vh;
+  left: 1vh;
+}
+#liforpencil{
+  top: 14vh;
+  left: 0;
+}
+#liforpencil:active{
+  box-shadow: 0 0 0 #1A171D;
+  top: 15vh;
+  left: 1vh;
+}
+#liforerase{
+  top: 26vh;
+  left: 0;
+}
+#liforerase:active{
+  box-shadow: 0 0 0 #1A171D;
+  top: 27vh;
+  left: 1vh;
+}
+
+#undo{
+  left: 0;
+  top: 42vh;
+}
+#undo:active{
+  box-shadow: 0 0 0 #1A171D;
+  left: 1vh;
+  top: 43vh;
+}
+#redo{
+  left: 0;
+  top: 54vh;
+}
+#redo:active{
+  box-shadow: 0 0 0 #1A171D;
+  left: 1vh;
+  top: 55vh;
+}
+
+#uploadedimagecontainer{
+  margin: 6vh 0 0 6vh;
+  width: 92vh;
   height: 58vh;
   transition: 0.2s ease-in-out;
   cursor: url('pointer.svg'),auto;
@@ -76,14 +175,14 @@ body{
   transform: translateY(-50%);
 }
 #uploadedimagecanvas{
-  max-width: 96vh;
+  max-width: 92vh;
   max-height: 58vh;
 }
 
 #uploadcontainer{
   position: relative;
-  margin: 6vh 0 0 0;
-  width: 96vh;
+  margin: 6vh 0 0 6vh;
+  width: 92vh;
   height: 76vh;
   background-color: #ffffff99;
   border: 1vh solid #1A171DAD;
@@ -131,7 +230,7 @@ body{
 }
 
 #buttons{
-  width: 86vh;
+  width: 80vh;
   margin: 6vh auto 0;
   display: none;
   position: relative;
@@ -205,16 +304,16 @@ body{
   margin: 0;
 }
 #sliders{
-  margin: 10vh 0 0 8vh;
-  width: 48vh;
+  margin: 8vh 0 0 6vh;
+  width: 40vh;
 }
 .sliderlabel{
   font-family: 'Clash Display', sans-serif;
-  font-size: 3vh;
+  font-size: 2.5vh;
   font-weight: 900;
-  letter-spacing: 0.1vh;
+  letter-spacing: 0.05vh;
   color: #1A171D;
-  margin: 0 0 3vh;
+  margin: 0 0 2vh;
 }
 .slider {
     --thumbSize: 5vh;
@@ -311,17 +410,17 @@ body{
 
  
 #colors{
-    margin: 8vh 0 0 8vh;
+    margin: 8vh 0 0 6vh;
 }   
 #togglediv{
-    margin: 0 0 5vh 0;
+    margin: 0 0 3.5vh 0;
     position: relative;
 }
 #toggletext{
     font-family: 'Clash Display', sans-serif;
-    font-size: 3vh;
+    font-size: 2.5vh;
     font-weight: 900;
-    letter-spacing: 0.1vh;
+    letter-spacing: 0.05vh;
     color: #1A171D;
 }
 .togglediv span{
@@ -379,13 +478,13 @@ body{
 }
 
 #input{
-    width: 48vh;
+    width: 40vh;
     height: 10vh;
     position: relative;
-    margin: 0 0 8vh 0;
+    margin: 0 0 10vh 0;
 }
 #inputcolor{
-    width: 48vh;
+    width: 40vh;
     height: 10vh;
     font-family: 'Clash Display', sans-serif;
     font-size: 3vh;
@@ -404,7 +503,7 @@ body{
 #colorsubmit{
     position: absolute;
     top: 3.5vh;
-    left: 40vh;
+    left: 32vh;
     background: transparent;
     border: transparent;
     font-family: 'Clash Display', sans-serif;
@@ -431,22 +530,33 @@ body{
     outline: 0.5vh solid #1A171D;
 } 
 
+#colorpalettediv{
+  margin: 0 0 3.5vh 0;
+  position: relative;
+}
+#colorpalettetext{
+  font-family: 'Clash Display', sans-serif;
+  font-size: 2.5vh;
+  font-weight: 900;
+  letter-spacing: 0.05vh;
+  color: #1A171D;
+}
 .palettelist{
     list-style-type: none;
-    margin: 0 0 6vh 0;
+    margin: 0 0 4vh 0;
     padding: 0;
-    width: 50vh;
+    width: 42vh;
     height: 8vh;
     overflow: hidden;
 }
 .palettelist li{
     float: left;
     margin: 0;
-    width: 6.25vh;
+    width: 6vh;
     height: 6vh;
     border-radius: 50%;
     position: relative;
-    margin-right: 2.25vh;
+    margin-right: 1.1vh;
     transition: transform 0.2s ease-in-out;
 }
 #palettelistlastitem{
@@ -466,13 +576,20 @@ body{
     background-color: #e4e4e4;
     border-radius: 50%;
     border: 0.5vh solid #1A171D;
-    box-shadow: 0.5vh 0.5vh 0 #1A171D;
+    box-shadow: 0.4vh 0.4vh 0 #1A171D;
     cursor: url('pointer.svg'),auto;
 }
+
+#palettebuttons{
+  position: relative;
+}
 #paletteshuffle{
+    position: absolute;
+    left: 0;
+    top: 0;
     background-color: #0080DE;
     color: #FFFFFF;
-    width: 48vh;
+    width: 20vh;
     height: 8vh;
     border: 0.5vh solid #1A171D;
     outline: none;
@@ -485,11 +602,38 @@ body{
     font-size: 2.5vh;
     text-align: center;
     cursor: url('pointer.svg'),auto;
-    box-shadow: 1.6vh 1.6vh 0 #1A171D;
+    box-shadow: 1.4vh 1.4vh 0 #1A171D;
 }
- #paletteshuffle:active{
+#paletteshuffle:active{
   box-shadow: 0 0 0 #1A171D;
-  margin: 1.6vh 0 0 1.6vh;
+  left: 1.4vh;
+  top: 1.4vh;
+ }
+#paletteapply{
+  position: absolute;
+  left: 23vh;
+  top: 0;
+  background-color: #0080DE;
+  color: #FFFFFF;
+  width: 18vh;
+  height: 8vh;
+  border: 0.5vh solid #1A171D;
+  outline: none;
+  border-radius: 2vh;
+  font-family: 'Clash Display', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.1vh;
+  word-spacing: 0vh;
+  font-size: 2.5vh;
+  text-align: center;
+  cursor: url('pointer.svg'),auto;
+  box-shadow: 1.4vh 1.4vh 0 #1A171D;
+}
+ #paletteapply:active{
+  box-shadow: 0 0 0 #1A171D;
+  left: 24.4vh;
+  top: 1.4vh;
  }
 
 #modal{
@@ -1074,10 +1218,112 @@ body{
     left: 0;
     top: 10vh;
   }
+
+  #drawing{
+    width: 8vh;
+    margin: 6vh 0 0 0;
+    position: relative;
+  }
+  #drawing button{
+    position: absolute;
+    width: 8vh;
+    height: 8vh;
+    border: 0.5vh solid #1A171D;
+    outline: none;
+    border-radius: 2vh;
+    cursor: url('pointer.svg'),auto;
+    box-shadow: 1vh 1vh 0 #1A171D;
+    background-color: #ffffff;
+  }
+  .pointerlist{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .pointerlist li{
+    position: absolute;
+    width: 8vh;
+    height: 8vh;
+  }
+  .pointerlist label, .pointerlist input{
+    display: block;
+    background-color: #ffffff;
+    margin: 0;
+  }
+  .pointerlist input[type="radio"]{
+    opacity: 0.01;
+    z-index: 2;
+  }
+  .pointerlist input[type="radio"]:checked+label{
+    background-color: #EC603A;
+  }
+  .pointerlist label{
+    z-index: 1;
+    width: 90%;
+    border: 0.5vh solid #1A171D;
+    outline: none;
+    border-radius: 2vh;
+    cursor: url('pointer.svg'),auto;
+    box-shadow: 1vh 1vh 0 #1A171D;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 18% 0;
+  }
   
+  #liforarrow{
+    top: 2vh;
+    left: 0;
+  }
+  #liforarrow:active{
+    box-shadow: 0 0 0 #1A171D;
+    top: 3vh;
+    left: 1vh;
+  }
+  #liforpencil{
+    top: 14vh;
+    left: 0;
+  }
+  #liforpencil:active{
+    box-shadow: 0 0 0 #1A171D;
+    top: 15vh;
+    left: 1vh;
+  }
+  #liforerase{
+    top: 26vh;
+    left: 0;
+  }
+  #liforerase:active{
+    box-shadow: 0 0 0 #1A171D;
+    top: 27vh;
+    left: 1vh;
+  }
+  
+  #undo{
+    left: 0;
+    top: 42vh;
+  }
+  #undo:active{
+    box-shadow: 0 0 0 #1A171D;
+    left: 1vh;
+    top: 43vh;
+  }
+  #redo{
+    left: 0;
+    top: 54vh;
+  }
+  #redo:active{
+    box-shadow: 0 0 0 #1A171D;
+    left: 1vh;
+    top: 55vh;
+  }
+  
+  #image{
+    margin-left: 6vh;
+  }
   #uploadedimagecontainer{
     margin: 6vh 0 0 0;
-    width: calc(90vw - 58vh);
+    width: calc(90vw - 62vh);
     height: 58vh;
     transition: 0.2s ease-in-out;
     cursor: url('pointer.svg'),auto;
@@ -1095,14 +1341,14 @@ body{
     transform: translateY(-50%);
   }
   #uploadedimagecanvas{
-    max-width: calc(90vw - 58vh);
+    max-width: calc(90vw - 62vh);
     max-height: 58vh;
   }
   
   #uploadcontainer{
     position: relative;
     margin: 6vh 0 0 0;
-    width: calc(90vw - 58vh);
+    width: calc(90vw - 62vh);
     height: 76vh;
     background-color: #ffffff99;
     border: 1vh solid #1A171DAD;
@@ -1122,7 +1368,7 @@ body{
   #uploadsvg{
     position: absolute;
     top: 27vh;
-    left: calc(45vw - 29vh - 3vh);
+    left: calc(45vw - 31vh - 3vh);
   }
   #uploadtitle{
     position: absolute;
@@ -1150,7 +1396,7 @@ body{
   }
   
   #buttons{
-    width: calc(90vw - 58vh);
+    width: calc(90vw - 62vh);
     margin: 6vh auto 0;
     display: none;
     position: relative;
@@ -1198,7 +1444,7 @@ body{
     position: absolute;
     background: linear-gradient(90deg, #2638ff 0%, #ff3848 100%);
     color: #FFFFFF;
-    width: calc(90vw - 58vh - 24vh);
+    width: calc(90vw - 62vh - 24vh);
     height: 9vh;
     left: 12vh;
     top: 0;
@@ -1224,16 +1470,16 @@ body{
     margin: 0;
   }
   #sliders{
-    margin: 10vh 0 0 9vh;
-    width: 48vh;
+    margin: 8vh 0 0 5.5vh;
+    width: 40vh;
   }
   .sliderlabel{
     font-family: 'Clash Display', sans-serif;
-    font-size: 3vh;
+    font-size: 2.5vh;
     font-weight: 900;
-    letter-spacing: 0.1vh;
+    letter-spacing: 0.05vh;
     color: #1A171D;
-    margin: 0 0 3vh;
+    margin: 0 0 2vh;
   }
   .slider {
       --thumbSize: 5vh;
@@ -1330,17 +1576,17 @@ body{
   
    
   #colors{
-      margin: 8vh 0 0 8vh;
+      margin: 8vh 0 0 5.5vh;
   }   
   #togglediv{
-      margin: 0 0 5vh 0;
+      margin: 0 0 3.5vh 0;
       position: relative;
   }
   #toggletext{
       font-family: 'Clash Display', sans-serif;
-      font-size: 3vh;
+      font-size: 2.5vh;
       font-weight: 900;
-      letter-spacing: 0.1vh;
+      letter-spacing: 0.05vh;
       color: #1A171D;
   }
   .togglediv span{
@@ -1398,13 +1644,13 @@ body{
   }
   
   #input{
-      width: 48vh;
+      width: 40vh;
       height: 10vh;
       position: relative;
-      margin: 0 0 8vh 0;
+      margin: 0 0 10vh 0;
   }
   #inputcolor{
-      width: 48vh;
+      width: 40vh;
       height: 10vh;
       font-family: 'Clash Display', sans-serif;
       font-size: 3vh;
@@ -1423,7 +1669,7 @@ body{
   #colorsubmit{
       position: absolute;
       top: 3.5vh;
-      left: 40vh;
+      left: 32vh;
       background: transparent;
       border: transparent;
       font-family: 'Clash Display', sans-serif;
@@ -1450,22 +1696,33 @@ body{
       outline: 0.5vh solid #1A171D;
   } 
   
+  #colorpalettediv{
+    margin: 0 0 3.5vh 0;
+    position: relative;
+  }
+  #colorpalettetext{
+    font-family: 'Clash Display', sans-serif;
+    font-size: 2.5vh;
+    font-weight: 900;
+    letter-spacing: 0.05vh;
+    color: #1A171D;
+  }
   .palettelist{
       list-style-type: none;
-      margin: 0 0 6vh 0;
+      margin: 0 0 4vh 0;
       padding: 0;
-      width: 50vh;
+      width: 42vh;
       height: 8vh;
       overflow: hidden;
   }
   .palettelist li{
       float: left;
       margin: 0;
-      width: 6.25vh;
+      width: 6vh;
       height: 6vh;
       border-radius: 50%;
       position: relative;
-      margin-right: 2.25vh;
+      margin-right: 1.1vh;
       transition: transform 0.2s ease-in-out;
   }
   #palettelistlastitem{
@@ -1485,13 +1742,20 @@ body{
       background-color: #e4e4e4;
       border-radius: 50%;
       border: 0.5vh solid #1A171D;
-      box-shadow: 0.5vh 0.5vh 0 #1A171D;
+      box-shadow: 0.4vh 0.4vh 0 #1A171D;
       cursor: url('pointer.svg'),auto;
   }
+  
+  #palettebuttons{
+    position: relative;
+  }
   #paletteshuffle{
+      position: absolute;
+      left: 0;
+      top: 0;
       background-color: #0080DE;
       color: #FFFFFF;
-      width: 48vh;
+      width: 20vh;
       height: 8vh;
       border: 0.5vh solid #1A171D;
       outline: none;
@@ -1504,11 +1768,38 @@ body{
       font-size: 2.5vh;
       text-align: center;
       cursor: url('pointer.svg'),auto;
-      box-shadow: 1.6vh 1.6vh 0 #1A171D;
+      box-shadow: 1.4vh 1.4vh 0 #1A171D;
   }
-   #paletteshuffle:active{
+  #paletteshuffle:active{
     box-shadow: 0 0 0 #1A171D;
-    margin: 1.6vh 0 0 1.6vh;
+    left: 1.4vh;
+    top: 1.4vh;
+   }
+  #paletteapply{
+    position: absolute;
+    left: 23vh;
+    top: 0;
+    background-color: #0080DE;
+    color: #FFFFFF;
+    width: 18vh;
+    height: 8vh;
+    border: 0.5vh solid #1A171D;
+    outline: none;
+    border-radius: 2vh;
+    font-family: 'Clash Display', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.1vh;
+    word-spacing: 0vh;
+    font-size: 2.5vh;
+    text-align: center;
+    cursor: url('pointer.svg'),auto;
+    box-shadow: 1.4vh 1.4vh 0 #1A171D;
+  }
+   #paletteapply:active{
+    box-shadow: 0 0 0 #1A171D;
+    left: 24.4vh;
+    top: 1.4vh;
    }
   
   #modal{
@@ -2090,11 +2381,117 @@ body{
     top: 8vh;
     padding-bottom: 8vh;
   }
+
+  #drawing{
+    margin: 4vh auto;
+    width: 90vw;
+    height: 7vh;
+    position: relative;
+  }
+  #drawing button{
+    position: absolute;
+    width: 6vh;
+    height: 6vh;
+    border: 0.5vh solid #1A171D;
+    outline: none;
+    border-radius: 50%;
+    cursor: url('pointer.svg'),auto;
+    box-shadow: 1vh 1vh 0 #1A171D;
+    background-color: #ffffff;
+  }
+  .pointerlist{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .pointerlist li{
+    position: absolute;
+    width: 6vh;
+    height: 6vh;
+  }
+  .pointerlist label, .pointerlist input{
+    display: block;
+    background-color: #ffffff;
+    margin: 0;
+  }
+  .pointerlist input[type="radio"]{
+    opacity: 0.01;
+    z-index: 2;
+  }
+  .pointerlist input[type="radio"]:checked+label{
+    background-color: #EC603A;
+  }
+  .pointerlist label{
+    z-index: 1;
+    width: 90%;
+    height: 90%;
+    border: 0.5vh solid #1A171D;
+    outline: none;
+    border-radius: 50%;
+    cursor: url('pointer.svg'),auto;
+    box-shadow: 1vh 1vh 0 #1A171D;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  .pointerlist label svg{
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  #liforarrow{
+    top: 2vh;
+    left: 0;
+  }
+  #liforarrow:active{
+    box-shadow: 0 0 0 #1A171D;
+    top: 3vh;
+    left: 1vh;
+  }
+  #liforpencil{
+    top: 2vh;
+    left: 8vh;
+  }
+  #liforpencil:active{
+    box-shadow: 0 0 0 #1A171D;
+    top: 3vh;
+    left: 9vh;
+  }
+  #liforerase{
+    top: 2vh;
+    left: 16vh;
+  }
+  #liforerase:active{
+    box-shadow: 0 0 0 #1A171D;
+    top: 3vh;
+    left: 17vh;
+  }
+  #undo{
+    right: 9vh;
+    top: 4vh;
+  }
+  #undo:active{
+    box-shadow: 0 0 0 #1A171D;
+    right: 8vh;
+    top: 5vh;
+  }
+  #redo{
+    right: 1vh;
+    top: 4vh;
+  }
+  #redo:active{
+    box-shadow: 0 0 0 #1A171D;
+    right: 0vh;
+    top: 5vh;
+  }
   
   #uploadedimagecontainer{
-    margin: 8vh 0 0 0;
+    margin: 10vh 0 0 0;
     width: 90vw;
-    height: 56vh;
+    height: 52vh;
     transition: 0.2s ease-in-out;
     cursor: url('pointer.svg'),auto;
     z-index: 2;
@@ -2112,14 +2509,14 @@ body{
   }
   #uploadedimagecanvas{
     max-width: 90vw;
-    max-height: 56vh;
+    max-height: 52vh;
   }
   
   #uploadcontainer{
     position: relative;
-    margin: 8vh 0 0 0;
+    margin: 10vh 0 0 0;
     width: 90vw;
-    height: 68vh;
+    height: 64vh;
     background-color: #ffffff99;
     border: 1vh solid #1A171DAD;
     box-sizing: border-box;
@@ -2418,7 +2815,7 @@ body{
       width: 90vw;
       height: 10vh;
       position: relative;
-      margin: 0 0 8vh 0;
+      margin: 0 0 10vh 0;
   }
   #inputcolor{
       width: 88vw;
@@ -2466,10 +2863,18 @@ body{
       background-color: #814DE5;
       outline: 0.5vh solid #1A171D;
   } 
+
+  #colorpalettetext{
+    font-family: 'Clash Display', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0.1vh;
+    color: #1A171D;
+  }
   
   .palettelist{
       list-style-type: none;
-      margin: 0 0 6vh 0;
+      margin: 4vh 0 2vh 0;
       padding: 0;
       width: 90vw;
       height: 10vh;
@@ -2478,11 +2883,11 @@ body{
   .palettelist li{
       float: left;
       margin: 0;
-      width: 8vh;
-      height: 8vh;
+      width: 6vh;
+      height: 6vh;
       border-radius: 50%;
       position: relative;
-      margin-right: calc(18vw - 9.8vh);
+      margin-right: calc(18vw - 7.3vh);
       transition: transform 0.2s ease-in-out;
   }
   #palettelistlastitem{
@@ -2505,7 +2910,16 @@ body{
       box-shadow: 0.5vh 0.5vh 0 #1A171D;
       cursor: url('pointer.svg'),auto;
   }
+
+  #palettebuttons{
+    position: relative;
+    height: 22vh;
+    padding-bottom: 2vh;
+  }
   #paletteshuffle{
+      position: absolute;
+      left: 0;
+      top: 0;
       background-color: #0080DE;
       color: #FFFFFF;
       width: 88vw;
@@ -2525,8 +2939,35 @@ body{
   }
    #paletteshuffle:active{
     box-shadow: 0 0 0 #1A171D;
-    margin: 2vw 0 0 2vw;
+    left: 2vw;
+    top: 2vw;
    }
+   #paletteapply{
+    position: absolute;
+    left: 0;
+    top: 12vh;
+    background-color: #0080DE;
+    color: #FFFFFF;
+    width: 88vw;
+    height: 8vh;
+    border: 0.5vh solid #1A171D;
+    outline: none;
+    border-radius: 2vh;
+    font-family: 'Clash Display', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    word-spacing: 0vh;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    cursor: url('pointer.svg'),auto;
+    box-shadow: 2vw 2vw 0 #1A171D;
+}
+ #paletteapply:active{
+  box-shadow: 0 0 0 #1A171D;
+  left: 2vw;
+  top: calc(12vh + 2vw);
+ }
   
   #modal{
     display: none;

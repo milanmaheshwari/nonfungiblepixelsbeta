@@ -15,6 +15,7 @@ const inputcolor = document.getElementById('inputcolor');
 const colorpicker = document.getElementById('colorpicker');
 const colorpickerlabel = document.getElementById('colorpickerlabel');
 const shufflebtn = document.getElementById('paletteshuffle');
+const applybtn = document.getElementById('paletteapply');
 
 const buttons = document.getElementById('buttons');
 const saveimg = document.getElementById('save');
@@ -39,6 +40,12 @@ const retrylazymint = document.getElementById('retrylazymint');
 const startover = document.getElementById('startover');
 const retryover = document.getElementById('retryover');
 
+const undobtn = document.getElementById('undo');
+const redobtn = document.getElementById('redo');
+const arrow = document.getElementById('arrow');
+const pencil = document.getElementById('pencil');
+const erase = document.getElementById('erase');
+
 var uploadimgdata;
 var filename;
 var ihex;
@@ -62,6 +69,11 @@ var huestartindex;
 var shadestartindex;
 var customstartindex;
 var finalpalette = [];
+
+var painting = false;
+var drawnimgdata;
+var drawnimghistory = [];
+var drawnimgstate;
 
 //conversionfunctions
 function rgbtohsl(r, g, b) {
@@ -198,9 +210,9 @@ function goldenratio(h){
 function applycolor(){
   const check = usecolor.checked;
   if(check == true){
-    generateuploadimage(uploadcanvas, uploadcontext, uploadimgdata);
+    generateuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
   }else{
-    drawuploadimage(uploadcanvas, uploadcontext, uploadimgdata);
+    drawuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
   }
 }
 
@@ -321,7 +333,7 @@ function generatepalette(){
   document.getElementById('color5label').style.backgroundColor = finalpalette[4];
   document.getElementById('color6label').style.backgroundColor = finalpalette[5];
 
-  applycolor();
+  //applycolor();
   
 }
 
@@ -333,10 +345,17 @@ function shufflepalette(){
   generatepalette();
 }
 
+function applypalette(){
+  generateuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
+  drawnimgstate += 1;
+  drawnimghistory[drawnimgstate] = drawnimgdata;
+  drawnimghistory.length = drawnimgstate + 1;
+}
+
 function generateuploadimage(cvs, ctx, imgdata){
 
   ctx.clearRect(0, 0, cvs.width, cvs.height);
-  drawuploadimage(cvs, ctx, imgdata);
+  ctx.putImageData(drawnimgdata, 0, 0);
   
   var imageData = ctx.getImageData(0, 0, cvs.width, cvs.height);
   var data = imageData.data;
@@ -426,6 +445,8 @@ function generateuploadimage(cvs, ctx, imgdata){
   }
 
   ctx.putImageData(imageData, 0, 0);
+  drawnimgdata = ctx.getImageData(0, 0, cvs.width, cvs.height);
+  drawuploadimage(cvs, ctx, drawnimgdata);
 }
 
 function drawuploadimage(cvs, ctx, idata){
@@ -460,6 +481,9 @@ function readeronload(event){
       
       uploadcontext.drawImage(image, 0, 0, uploadcanvas.width, uploadcanvas.height);
       uploadimgdata = uploadcontext.getImageData(0, 0, uploadcanvas.width, uploadcanvas.height);
+      drawnimgdata = uploadimgdata;
+      drawnimghistory[0] = drawnimgdata;
+      drawnimgstate = 0;
 
       uploadedimagecontainer.style.display = 'block';
       buttons.style.display = 'block';
@@ -480,6 +504,67 @@ function handleImage(e){
     reader.readAsDataURL(e.target.files[0]);    
 }
 
+function startposition(e){
+  painting = true;
+  draw(e);
+}
+function finishedposition(e){
+  painting = false;
+  uploadcontext.beginPath();
+  
+  drawnimgstate += 1;
+  drawnimghistory[drawnimgstate] = drawnimgdata;
+  drawnimghistory.length = drawnimgstate + 1;
+}
+function draw(e){
+  if(!painting){return;}
+
+  const pointer = document.querySelector('input[name = pointer]:checked').value;
+  if(pointer == "pencil"){
+    uploadcontext.strokeStyle = ihex;
+  }else if(pointer == "erase"){
+    uploadcontext.strokeStyle = '#FFFFFF';
+  }
+  else if(pointer == "arrow"){
+    return;
+  }
+
+
+  uploadcontext.clearRect(0, 0, uploadcanvas.width, uploadcanvas.height);
+  uploadcontext.putImageData(drawnimgdata, 0, 0);
+
+  uploadcontext.lineWidth = 20;
+  uploadcontext.lineCap = "round";
+
+  var rect = uploadcanvas.getBoundingClientRect();
+  var x = (e.clientX - rect.left) / (rect.right - rect.left) * uploadcanvas.width; 
+  var y = (e.clientY - rect.top) / (rect.bottom - rect.top) * uploadcanvas.height;
+
+  uploadcontext.lineTo(x, y);
+  uploadcontext.stroke();
+  uploadcontext.beginPath();
+  uploadcontext.moveTo(x, y);
+
+  drawnimgdata = uploadcontext.getImageData(0, 0, uploadcanvas.width, uploadcanvas.height);
+  //drawuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
+  drawuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
+}
+function undo(){
+  if(drawnimgstate > 0){
+    drawnimgstate -= 1;
+    drawnimgdata = drawnimghistory[drawnimgstate];
+    //drawuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
+    drawuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
+  }
+}
+function redo(){
+  if(drawnimgstate < (drawnimghistory.length - 1)){
+    drawnimgstate += 1;
+    drawnimgdata = drawnimghistory[drawnimgstate];
+    //drawuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
+    drawuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
+  }
+}
 
 
 //logic
@@ -489,13 +574,21 @@ imageLoader.addEventListener('change', handleImage, false);
   this.value = null;
 };*/
 
-blocksize.onchange = () => {
-  applycolor();
-}
+uploadcanvas.addEventListener('mousedown', startposition);
+uploadcanvas.addEventListener('mouseup', finishedposition);
+uploadcanvas.addEventListener('mousemove', draw);
+document.addEventListener('mousemove', function(e) {
+  if (!uploadcanvas.contains(e.target)) {
+    painting = false;
+  }
+});
 
-usecolor.onchange = () => {
-  applycolor();
+blocksize.onchange = () => {
+  drawuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
 }
+/*usecolor.onchange = () => {
+  applycolor();
+}*/
 document.getElementById('colorsubmit').onclick = () => {
   init();
 }
@@ -506,6 +599,29 @@ colorpicker.onchange = () => {
 shufflebtn.onclick = () => {
   shufflepalette();
 }
+applybtn.onclick = () => {
+  applypalette();
+}
+undobtn.onclick = () => {
+  undo();
+}
+redobtn.onclick = () => {
+  redo();
+}
+[arrow, pencil, erase].forEach(item => {
+  item.onchange = () => {
+    const pointer = document.querySelector('input[name = pointer]:checked').value;
+    if(pointer == "pencil"){
+      uploadcanvas.style.cursor = "url('draw.svg'),auto";
+    }else if(pointer == "erase"){
+      uploadcanvas.style.cursor = "url('erase.svg'),auto";
+    }
+    else if(pointer == "arrow"){
+      uploadcanvas.style.cursor = "url('pointer.svg'),auto";
+    }
+  }
+})
+
 
 //saving
 saveimg.onclick = () => {
@@ -524,6 +640,7 @@ deleteimg.onclick = () => {
   uploadcontainer.style.display = 'block';
   buttons.style.display = 'none';
   imageLoader.value = '';
+  drawnimghistory = [];
 }
 
 //sliders
