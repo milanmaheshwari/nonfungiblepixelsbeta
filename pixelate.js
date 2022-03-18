@@ -529,7 +529,6 @@ function draw(e){
     return;
   }
 
-
   uploadcontext.clearRect(0, 0, uploadcanvas.width, uploadcanvas.height);
   uploadcontext.putImageData(drawnimgdata, 0, 0);
 
@@ -549,6 +548,7 @@ function draw(e){
   //drawuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
   drawuploadimage(uploadcanvas, uploadcontext, drawnimgdata);
 }
+
 function undo(){
   if(drawnimgstate > 0){
     drawnimgstate -= 1;
@@ -578,6 +578,15 @@ uploadcanvas.addEventListener('mousedown', startposition);
 uploadcanvas.addEventListener('mouseup', finishedposition);
 uploadcanvas.addEventListener('mousemove', draw);
 document.addEventListener('mousemove', function(e) {
+  if (!uploadcanvas.contains(e.target)) {
+    painting = false;
+  }
+});
+
+uploadcanvas.addEventListener('touchstart', startposition);
+uploadcanvas.addEventListener('touchend', finishedposition);
+uploadcanvas.addEventListener('touchmove', draw);
+document.addEventListener('touchmove', function(e) {
   if (!uploadcanvas.contains(e.target)) {
     painting = false;
   }
